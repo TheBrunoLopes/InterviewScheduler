@@ -42,7 +42,7 @@ def slots_init():
              {"username": "ingrid", "user_type": "interviewer"}]
     for interview_slot in generate_interview_slots(start_date, end_date):
         # Add a few users to this time slot
-        for i in range(random.randint(0, 3)):
+        for i in range(random.randint(0, 5)):
             insert_or_update_one_slot({"username": users[random.randint(0, len(users) - 1)]['username'],
                                        "dateTime": interview_slot,
                                        "user_type": users[random.randint(0, len(users) - 1)]['user_type']
