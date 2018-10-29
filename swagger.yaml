@@ -150,7 +150,7 @@ definitions:
     properties:
       username:
         type: "string"
-        example: "miguel"
+        example: "carlos"
       password:
         type: "string"
         example: "not 1234"
