@@ -5,6 +5,11 @@ from interview_scheduler_service.crud.utils import bson_to_json
 
 
 def insert_user(user):
+    """
+    Inserts a user in the database
+    :param user:
+    :return:
+    """
     # We copy the user object so that we do not change it
     user = user.copy()
     try:
@@ -15,6 +20,11 @@ def insert_user(user):
 
 
 def find_users(user_type):
+    """
+    Retrieves all users of a certain user_type
+    :param user_type:
+    :return:
+    """
     return bson_to_json(mongo.db.users.find({'type': user_type}, projection={'password': False, '_id': False}))
 
 
