@@ -10,6 +10,7 @@ def users_auth(body):
     validate_user(body, enforce_type=False)
     # hashing the password
     body['password'] = hash_string(body['password'])
+    body.pop('type', None)
     user = find_user(body)
     if user is None:
         return "Bad username of password", 401
