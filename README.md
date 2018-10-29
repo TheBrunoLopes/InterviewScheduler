@@ -33,7 +33,7 @@ If you don't, you need to have the mongoDB running in your machine and available
 ## Initialize database with examples
 After running the application, you could add the candidates
  *carlos* and *arturito*, and the interviewers *ines* and *ingrid*
-with a few overlapping time slots to observe the behaviour of the
+with many random overlapping time slots to observe the behaviour of the
 application.
 
 Do:
