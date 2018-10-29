@@ -5,6 +5,8 @@ from interview_scheduler_service.crud.utils import bson_to_json
 
 
 def insert_user(user):
+    # We copy the user object so that we do not change it
+    user = user.copy()
     try:
         inserted_id = mongo.db.users.insert_one(user).inserted_id
     except DuplicateKeyError:

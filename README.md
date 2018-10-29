@@ -32,7 +32,7 @@ docker run --name some-mongo --net=host -d mongo
 If you don't, you need to have the mongoDB running in your machine and available on port 27017
 ## Initialize database with examples
 After running the application, you could add the candidates
- *Carlos* and *Arturito*, and the interviewers *Ines* and *Ingrid*
+ *carlos* and *arturito*, and the interviewers *ines* and *ingrid*
 with a few overlapping time slots to observe the behaviour of the
 application.
 
