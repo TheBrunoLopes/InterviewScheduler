@@ -9,9 +9,9 @@ get matches between them.
 InterviewScheduler/
     interview_scheduler_service/- Package containing all the code necessary to run the python application (application.py)
         business/               - Business logic code here 
-            controllers/        - Since this application is a REST service, every endpoint is mapped to function present here
+            controllers/        - Since this application is a REST service, every endpoint is mapped to a function in this dir
             utils/              - Collection of functions used by diferent controllers and functions
-        crud/                   - Has all the methods needed to access the mongo database
+        crud/                   - Has all the functions needed to access the mongo database
     test/                       - Has unit tests. Run them using *pytest*
     application.py              - Entrypoint for the application
     docker-compose.yaml         - Docker-compose file that runs the back-end and mongo-database
@@ -22,18 +22,19 @@ InterviewScheduler/
     swagger.yaml                - Document that specifies the REST interface following the openApi 2.0 specification standards
 ```
 
-To analyse the code, I suggest going to `localhost:4001/v1/ui/` to see all the endpoints
+To analyse the code, I suggest going to `localhost:4001/v1/ui` to see all the endpoints
  and then going to the `interview_scheduler/business/controllers/` directory to see each endpoint function.
 ## Run this project
 ### Using docker-compose
 ```bash
-# Runs the interver scheduler service and the mongo database 
+# Runs the interview scheduler service and the mongo database 
 docker-compose up -d
 # Populates the database with users and interview slots described in the "Populate database" section
 ./init_database.sh
 ```
-You can now go to `localhost:4001/v1/ui/` to experiment with the endpoints.
-### Or you can do it yourself
+You can now go to `localhost:4001/v1/ui` to experiment with the endpoints.
+### Do it yourself
+You can also run this service without docker
 #### Interview Scheduler Service
 To install the dependencies you could activate a `virtualenv` and do
 ```bash
