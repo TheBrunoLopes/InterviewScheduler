@@ -1,4 +1,4 @@
-from interview_scheduler.crud import mongo
+from interview_scheduler_service.crud import mongo
 
 
 def insert_or_update_one_slot(slot):

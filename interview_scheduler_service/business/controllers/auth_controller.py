@@ -1,8 +1,8 @@
 from flask_jwt_extended import create_access_token
 
-from interview_scheduler.business.utils.hashing import hash_string
-from interview_scheduler.business.utils.objects_validation import validate_user
-from interview_scheduler.crud.user_operations import find_user
+from interview_scheduler_service.business.utils.hashing import hash_string
+from interview_scheduler_service.business.utils.objects_validation import validate_user
+from interview_scheduler_service.crud.user_operations import find_user
 
 
 def users_auth(body):

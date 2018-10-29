@@ -1,7 +1,7 @@
 from pymongo.errors import DuplicateKeyError
 
-from interview_scheduler.crud import mongo
-from interview_scheduler.crud.utils import bson_to_json
+from interview_scheduler_service.crud import mongo
+from interview_scheduler_service.crud.utils import bson_to_json
 
 
 def insert_user(user):

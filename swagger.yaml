@@ -17,7 +17,7 @@ paths:
       tags:
       - "users"
       summary: "Create new user"
-      x-swagger-router-controller: "interview_scheduler.business.controllers.users_controller"
+      x-swagger-router-controller: "interview_scheduler_service.business.controllers.users_controller"
       operationId: "post_users"
       produces:
       - "application/json"
@@ -35,7 +35,7 @@ paths:
       tags:
       - "users"
       summary: "Get a list of users"
-      x-swagger-router-controller: "interview_scheduler.business.controllers.users_controller"
+      x-swagger-router-controller: "interview_scheduler_service.business.controllers.users_controller"
       operationId: "get_users"
       produces:
       - "application/json"
@@ -54,7 +54,7 @@ paths:
       tags:
       - "slots"
       summary: "Get the availability slots for the authenticated user"
-      x-swagger-router-controller: "interview_scheduler.business.controllers.slots_controller"
+      x-swagger-router-controller: "interview_scheduler_service.business.controllers.slots_controller"
       operationId: "get_slots"
       security:
         - Bearer: []
@@ -65,7 +65,7 @@ paths:
       tags:
       - "slots"
       summary: "Post new slots for the authenticated user"
-      x-swagger-router-controller: "interview_scheduler.business.controllers.slots_controller"
+      x-swagger-router-controller: "interview_scheduler_service.business.controllers.slots_controller"
       operationId: "post_slots"
       produces:
       - "application/json"
@@ -85,7 +85,7 @@ paths:
       tags:
       - "slots"
       summary: "Delete specific slots for the authenticated user"
-      x-swagger-router-controller: "interview_scheduler.business.controllers.slots_controller"
+      x-swagger-router-controller: "interview_scheduler_service.business.controllers.slots_controller"
       operationId: "delete_slots"
       security:
         - Bearer: []
@@ -106,7 +106,7 @@ paths:
       tags:
       - "slots"
       summary: "Get the availability slots for a cadidate and many interviewers"
-      x-swagger-router-controller: "interview_scheduler.business.controllers.slots_controller"
+      x-swagger-router-controller: "interview_scheduler_service.business.controllers.slots_controller"
       operationId: "get_slots_matches"
       parameters:
       - in: "query"
@@ -130,7 +130,7 @@ paths:
       - "auth"
       summary: "Authenticate as a interviewer or candidate"
       description: "This can only be done by the logged in user."
-      x-swagger-router-controller: "interview_scheduler.business.controllers.auth_controller"
+      x-swagger-router-controller: "interview_scheduler_service.business.controllers.auth_controller"
       operationId: "users_auth"
       produces:
       - "application/json"

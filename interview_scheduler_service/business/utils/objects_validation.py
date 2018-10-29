@@ -1,4 +1,4 @@
-from interview_scheduler.business.utils.date_time import create_date_object
+from interview_scheduler_service.business.utils.date_time import create_date_object
 
 
 def validate_user(user, enforce_type=True):

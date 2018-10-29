@@ -1,9 +1,9 @@
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
-from interview_scheduler.business.utils.date_time import generate_interview_slots, \
+from interview_scheduler_service.business.utils.date_time import generate_interview_slots, \
     date_object_to_string
-from interview_scheduler.business.utils.objects_validation import validate_date_interval
-from interview_scheduler.crud.slot_operations import insert_or_update_one_slot, find_slots, delete_many_slots, \
+from interview_scheduler_service.business.utils.objects_validation import validate_date_interval
+from interview_scheduler_service.crud.slot_operations import insert_or_update_one_slot, find_slots, delete_many_slots, \
     find_many_slots_matches
 
 
