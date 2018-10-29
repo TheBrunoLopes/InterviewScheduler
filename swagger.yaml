@@ -128,7 +128,7 @@ paths:
     post:
       tags:
       - "auth"
-      summary: "Authenticate as a interviewer or candidate"
+      summary: "Authenticate as an interviewer or candidate"
       description: "This can only be done by the logged in user."
       x-swagger-router-controller: "interview_scheduler_service.business.controllers.auth_controller"
       operationId: "users_auth"
