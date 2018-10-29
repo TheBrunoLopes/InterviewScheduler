@@ -1,0 +1,22 @@
+version: "3"
+services:
+  InterviewScheduler-service:
+    image: interview_scheduler_service
+    expose:
+      - "4001"
+    ports:
+      - "4001:4001"
+    links:
+      - mongo-db
+    environment:
+      - MONGO_HOST=mongo-db
+      - MONGO_PORT=27017
+      - MONGO_INITDB_DATABASE=interview_slots
+  mongo-db:
+    image: mongo
+    expose:
+      - "27017"
+#    volumes:
+#      - "init_script/:/docker-entrypoint-initdb.d/"
+#volumes:
+#  init_script:
