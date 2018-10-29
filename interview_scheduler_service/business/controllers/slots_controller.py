@@ -9,6 +9,10 @@ from interview_scheduler_service.crud.slot_operations import insert_or_update_on
 
 @jwt_required
 def get_slots():
+    """
+    Gets the available slots for the authenticated user only.
+    :return:
+    """
     slots_list = find_slots(get_jwt_identity()['username'])
     for slot in slots_list:
         slot["dateTime"] = date_object_to_string(slot["dateTime"])
@@ -17,6 +21,11 @@ def get_slots():
 
 @jwt_required
 def post_slots(body):
+    """
+    Specifies the availability of a user
+    :param body: dict containing the "startDate" and "endDate" attributes
+    :return:
+    """
     try:
         start_date, end_date = validate_date_interval(body['startDate'], body['endDate'])
     except ValueError as er:
@@ -31,6 +40,11 @@ def post_slots(body):
 
 @jwt_required
 def delete_slots(body):
+    """
+    Deletes all available slots between "startDate" and "endDate"
+    :param body: dict containing the "startDate" and "endDate" attributes
+    :return:
+    """
     try:
         start_date, end_date = validate_date_interval(body['startDate'], body['endDate'])
     except ValueError as er:
@@ -39,6 +53,12 @@ def delete_slots(body):
 
 
 def get_slots_matches(candidate, interviewers):
+    """
+    Retrieves the matches between a candidate and a list of interviewers
+    :param candidate:
+    :param interviewers:
+    :return:
+    """
     slots_list = find_many_slots_matches(candidate, interviewers)
     # This for loop, puts the dateTime in the correct format
     # and collapses slots with the same dateTime that have different interviewers

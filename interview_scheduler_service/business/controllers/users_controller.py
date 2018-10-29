@@ -4,6 +4,11 @@ from interview_scheduler_service.crud.user_operations import insert_user, find_u
 
 
 def post_users(body):
+    """
+    Inserts a user in the database
+    :param body: user object
+    :return:
+    """
     validate_user(body)
     body['password'] = hash_string(body['password'])
     try:
@@ -14,4 +19,9 @@ def post_users(body):
 
 
 def get_users(user_type):
+    """
+    Retrieves a list of users if a certain type (candidate / interviewer)
+    :param user_type:
+    :return:
+    """
     return find_users(user_type), 200
