@@ -6,7 +6,11 @@ from interview_scheduler_service.crud.user_operations import insert_user, find_u
 def post_users(body):
     validate_user(body)
     body['password'] = hash_string(body['password'])
-    return insert_user(body), 201
+    try:
+        insert_user(body)
+    except ValueError:
+        return "Username already exists", 400
+    return None, 201
 
 
 def get_users(user_type):
