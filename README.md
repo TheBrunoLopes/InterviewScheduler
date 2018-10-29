@@ -2,6 +2,8 @@
 This project consists in a interview calendar API.
 Its purpose is to specify time slots available for candidates and interviewers in order to
 get matches between them.
+![Figure 1](https://github.com/bioslikk/InterviewScheduler/blob/master/service_ui.png?raw=true)
+
 ## Project Structure
 ```
 InterviewScheduler/
@@ -32,7 +34,6 @@ docker-compose up -d
 ```
 You can now go to `localhost:4001/v1/ui/` to experiment with the endpoints.
 ### Or you can do it yourself
-I see you are a person that takes matters into his own hands
 #### Interview Scheduler Service
 To install the dependencies you could activate a `virtualenv` and do
 ```bash
