@@ -1,3 +1,2 @@
-# InterviewScheduler
+# Interview-scheduler
 
-First draft

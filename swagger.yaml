@@ -1,0 +1,176 @@
+swagger: "2.0"
+info:
+  description: "This is a service allows you to set your availabilty slots and get a match with the interviewers/candidates"
+  version: "1.0.0"
+  title: "Interview Scheduling Service"
+basePath: "/v1"
+tags:
+- name: "auth"
+  description: "Authentication"
+- name: "users"
+  description: "Operations for users"
+- name: "slots"
+  description: "Availability slots for each user"
+paths:
+  /users:
+    post:
+      tags:
+      - "users"
+      summary: "Create new user"
+      x-swagger-router-controller: "interview_scheduler.business.controllers.users_controller"
+      operationId: "post_users"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "User object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
+    get:
+      tags:
+      - "users"
+      summary: "Get a list of users"
+      x-swagger-router-controller: "interview_scheduler.business.controllers.users_controller"
+      operationId: "get_users"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "user_type"
+        description: "Type of user"
+        required: true
+        type: "string"
+        enum: ["candidate","interviewer"]
+      responses:
+        default:
+          description: "successful operation"
+  /slots:
+    get:
+      tags:
+      - "slots"
+      summary: "Get the availability slots for the authenticated user"
+      x-swagger-router-controller: "interview_scheduler.business.controllers.slots_controller"
+      operationId: "get_slots"
+      security:
+        - Bearer: []
+      responses:
+        default:
+          description: "successful operation"
+    post:
+      tags:
+      - "slots"
+      summary: "Post new slots for the authenticated user"
+      x-swagger-router-controller: "interview_scheduler.business.controllers.slots_controller"
+      operationId: "post_slots"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "User object"
+        required: true
+        schema:
+          $ref: "#/definitions/Slot"
+      security:
+        - Bearer: []
+      responses:
+        default:
+          description: "successful operation"
+    delete:
+      tags:
+      - "slots"
+      summary: "Delete specific slots for the authenticated user"
+      x-swagger-router-controller: "interview_scheduler.business.controllers.slots_controller"
+      operationId: "delete_slots"
+      security:
+        - Bearer: []
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "User object"
+        required: true
+        schema:
+          $ref: "#/definitions/Slot"
+      responses:
+        default:
+          description: "successful operation"
+  /slots/matches:
+    get:
+      tags:
+      - "slots"
+      summary: "Get the availability slots for a cadidate and many interviewers"
+      x-swagger-router-controller: "interview_scheduler.business.controllers.slots_controller"
+      operationId: "get_slots_matches"
+      parameters:
+      - in: "query"
+        name: "candidate"
+        description: "username of candidate"
+        required: true
+        type: "string"
+      - in: "query"
+        name: "interviewers"
+        description: "usernames of interviewers"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+      responses:
+        default:
+          description: "successful operation"
+  /auth:
+    post:
+      tags:
+      - "auth"
+      summary: "Authenticate as a interviewer or candidate"
+      description: "This can only be done by the logged in user."
+      x-swagger-router-controller: "interview_scheduler.business.controllers.auth_controller"
+      operationId: "users_auth"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
+definitions:
+  User:
+    type: "object"
+    properties:
+      username:
+        type: "string"
+        example: "miguel"
+      password:
+        type: "string"
+        example: "not 1234"
+      type:
+        type: "string"
+        enum: ["candidate","interviewer"]
+        example: "candidate"
+  Slot:
+    type: "object"
+    properties:
+      startDate:
+        type: "string"
+        format: "dateTime"
+        example: "2018-11-01 15"
+      endDate:
+        type: "string"
+        format: "dateTime"
+        example: "2018-11-01 17"
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
