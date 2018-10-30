@@ -40,7 +40,7 @@ def delete_many_slots(start_date, end_date, username):
 
 def find_many_slots_matches(candidate, interviewers):
     """
-    Retrieves the intersections between the candidate slots and the interviewers
+    Retrieves the intersections between the candidate and interviewers slots
     :param candidate:
     :param interviewers:
     :return:

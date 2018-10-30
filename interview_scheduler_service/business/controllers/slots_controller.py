@@ -41,7 +41,7 @@ def post_slots(body):
 @jwt_required
 def delete_slots(body):
     """
-    Deletes all available slots between "startDate" and "endDate"
+    Deletes all available slots between "startDate" and "endDate" for the authenticated user
     :param body: dict containing the "startDate" and "endDate" attributes
     :return:
     """
@@ -60,7 +60,7 @@ def get_slots_matches(candidate, interviewers):
     :return:
     """
     slots_list = find_many_slots_matches(candidate, interviewers)
-    # This for loop, puts the dateTime in the correct format
+    # This for loop puts the dateTime in the correct format
     # and collapses slots with the same dateTime that have different interviewers
     # The username field of a slot will be an array with the usernames of the interviewers
     # available for that slot

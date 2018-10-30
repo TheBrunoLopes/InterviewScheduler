@@ -1,6 +1,7 @@
 from datetime import timedelta
 from flask_jwt_extended import JWTManager
 import connexion as connexion
+
 app = connexion.App(__name__, swagger_ui=True)
 app.add_api('swagger.yaml')
 application = app.app

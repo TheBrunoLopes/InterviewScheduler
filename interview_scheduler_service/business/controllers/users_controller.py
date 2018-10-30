@@ -20,7 +20,7 @@ def post_users(body):
 
 def get_users(user_type):
     """
-    Retrieves a list of users if a certain type (candidate / interviewer)
+    Retrieves a list of users of a certain type (candidate / interviewer)
     :param user_type:
     :return:
     """

@@ -5,7 +5,7 @@ from interview_scheduler_service.business.utils.objects_validation import valida
 def test_simple_date():
     """
     Tests if create_date_object(..) can create a simple datetime object from a string
-    :return: None
+    :return:
     """
     test_date = create_date_object("2018-12-01 06")
     assert test_date.hour == 6
@@ -16,8 +16,8 @@ def test_simple_date():
 
 def test_incorrect_date():
     """
-    Tests if a ValueError exception is raised when we pass incorrect dates to create_date_object(..)
-    :return: None
+    Tests if a ValueError exception is raised when we pass incorrect date formats to create_date_object(..)
+    :return:
     """
     try:
         create_date_object("2018-12-01 06s")
@@ -33,7 +33,7 @@ def test_incorrect_date():
 def test_interview_slots():
     """
     Test if the interview slots are being generated with an one hour interval
-    :return: None
+    :return:
     """
     start_date, end_date = validate_date_interval("2018-12-01 0", "2018-12-02 12")
     slot_list = list(generate_interview_slots(start_date, end_date, slot_hours_duration=1))
